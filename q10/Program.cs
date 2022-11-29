@@ -17,19 +17,6 @@ Pesquisa("Liste os alunos e suas idades com seus respectivos professores.");
 Pesquisador.Pesquisa3(uni);
 WriteLine();
 
-Pesquisa("Liste os professores e seus salários com seus respectivos alunos.");
-Pesquisador.Pesquisa4(uni);
-WriteLine();
-
-Pesquisa("Top 10 Professores com mais alunos da universidade.");
-Pesquisador.Pesquisa5(uni);
-WriteLine();
-
-Pesquisa("Considerando que todo aluno custa 300 reais mais o salário dos seus professores"
-    + " divido entre seus colegas de classe. Liste os alunos e seus respectivos custos.");
-Pesquisador.Pesquisa6(uni);
-WriteLine();
-
 ReadKey(true);
 void Pesquisa(string texto) => WriteLine($"Pesquisa {++_count}. {texto}\n");
 
@@ -55,31 +42,6 @@ public class Pesquisador
     /// Liste os alunos com seus respectivos professores
     /// </summary>
     public static void Pesquisa3(Universidade uni)
-    {
-        WriteLine("Não implementado!");
-    }
-
-    /// <summary>
-    /// Liste o número de alunos que cada professor possui.
-    /// </summary>
-    public static void Pesquisa4(Universidade uni)
-    {
-        WriteLine("Não implementado!");
-    }
-
-    /// <summary>
-    /// Top 10 Professores com mais alunos da universidade
-    /// </summary>
-    public static void Pesquisa5(Universidade uni)
-    {
-        WriteLine("Não implementado!");
-    }
-
-    /// <summary>
-    /// Considerando que todo aluno custa 300 reais mais o salário dos seus professores
-    /// divido entre seus colegas de classe. Liste os alunos e seus respectivos custos
-    /// </summary>
-    public static void Pesquisa6(Universidade uni)
     {
         WriteLine("Não implementado!");
     }
