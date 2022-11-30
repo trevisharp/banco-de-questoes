@@ -5,9 +5,9 @@ using System.Collections.Generic;
 Universe universe = new Universe();
 universe.Add(new Earth());
 universe.Add(new Mon());
-universe.Add(new Rocket());
+universe.Add(new Satellite());
 
-App.Run(universe, 100);
+App.Run(universe, 1000);
 
 public abstract partial class Body
 {
@@ -45,16 +45,19 @@ public class Mon : Body
     }
 }
 
-public class Rocket : Body
+public class Satellite : Body
 {
-    public Rocket()
+    public Satellite()
     {
-        Position = new PointF(0f, -127.562f / 2); // 12756,2 km;
-        VelocityX = 0f;
-        VelocityY = -0.012f;
-        Color = Color.Red;
-        Mass = 500000f; // 500 tonelasdas
-        Size = 5f; // fantasioso, apenas para vizualização
+        const float G = 6.6743E-11f;
+        Position = new PointF(0f, -127.562f / 2 - 10);
+        VelocityY = 0;
+        Color = Color.Gray;
+        Mass = 500000f;
+        Size = 3f; // 12756,2 km
+        VelocityX = (float)Math.Sqrt(G * 5.9742E24f 
+            / (1000 * 1000 * -Position.Y))
+            / (1000 * 1000);
     }
 }
 

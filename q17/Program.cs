@@ -13,7 +13,7 @@ public class Point
 {
     public Point(int x, int y)
     {
-
+        throw new NotImplementedException();
     }
 }
 
