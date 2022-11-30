@@ -12,3 +12,10 @@
 - Questão 10 – LINQ – Nível Aprendiz
 - Questão 11 – LINQ – Nível Meio Oficial
 - Questão 12 – LINQ – Nível Engenheiro
+- Questão 13 – C# Básico – Nível Estagiário
+- Questão 14 – C# Básico – Nível Aprendiz
+- Questão 15 – C# Básico – Nível Meio Oficial
+- Questão 16 – LINQ – Nível Aprendiz
+- Questão 17 – Orientação a Objetos – Nível Estagiário
+- Questão 18 – Orientação a Objetos – Nível Aprendiz
+- Questão 19 – Orientação a Objetos – Nível Meio Oficial
