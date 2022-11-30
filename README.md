@@ -17,5 +17,5 @@
 - Questão 15 – C# Básico – Nível Meio Oficial
 - Questão 16 – LINQ – Nível Aprendiz
 - Questão 17 – Orientação a Objetos – Nível Estagiário
-- Questão 18 – Orientação a Objetos – Nível Aprendiz
-- Questão 19 – Orientação a Objetos – Nível Meio Oficial
+- Questão 18 – Orientação a Objetos – Nível Meio Oficial
+- Questão 19 – Orientação a Objetos – Nível Aprendiz

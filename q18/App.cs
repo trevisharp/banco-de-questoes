@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 public static class App
 {
-    public static void Run(Universe universe, int N)
+    public static void Run(Universe universe, int N = 1000)
     {
         ApplicationConfiguration.Initialize();
 
@@ -67,32 +67,5 @@ public abstract partial class Body
             Position.X - Size / 2 + center.X,
             Position.Y - Size / 2 + center.Y,
             Size, Size);
-    }
-
-    public void Update(float dt)
-    {
-        Position = new PointF(
-            Position.X + VelocityX * dt,
-            Position.Y + VelocityY * dt
-        );
-    }
-
-    public void ApplyForce(Body other, float dt)
-    {
-        const float G = 6.6743E-11f;
-        float r = 1000 * 1000 * Distance(other);
-        float force = G * this.Mass * other.Mass / (r * r);
-        float acceleration = force / Mass;
-        float dx = 1000 * 1000 * (other.Position.X - this.Position.X);
-        float dy = 1000 * 1000 * (other.Position.Y - this.Position.Y);
-        this.VelocityX += (dt * acceleration * dx / r) / 1000 / 1000;
-        this.VelocityY += (dt * acceleration * dy / r) / 1000 / 1000;
-    }
-
-    public float Distance(Body other)
-    {
-        float dx = other.Position.X - this.Position.X;
-        float dy = other.Position.Y - this.Position.Y;
-        return (float)Math.Sqrt(dx * dx + dy * dy);
     }
 }

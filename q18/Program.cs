@@ -5,7 +5,6 @@ using System.Collections.Generic;
 Universe universe = new Universe();
 universe.Add(new Earth());
 universe.Add(new Mon());
-universe.Add(new Satellite());
 
 App.Run(universe, 1000);
 
@@ -17,6 +16,33 @@ public abstract partial class Body
     public Color Color { get; set; }
     public float Size { get; set; }
     public float Mass { get; set; }
+
+    public void Update(float dt)
+    {
+        Position = new PointF(
+            Position.X + VelocityX * dt,
+            Position.Y + VelocityY * dt
+        );
+    }
+
+    public void ApplyForce(Body other, float dt)
+    {
+        const float G = 6.6743E-11f;
+        float r = 1000 * 1000 * Distance(other);
+        float force = G * this.Mass * other.Mass / (r * r);
+        float acceleration = force / Mass;
+        float dx = 1000 * 1000 * (other.Position.X - this.Position.X);
+        float dy = 1000 * 1000 * (other.Position.Y - this.Position.Y);
+        this.VelocityX += (dt * acceleration * dx / r) / 1000 / 1000;
+        this.VelocityY += (dt * acceleration * dy / r) / 1000 / 1000;
+    }
+
+    public float Distance(Body other)
+    {
+        float dx = other.Position.X - this.Position.X;
+        float dy = other.Position.Y - this.Position.Y;
+        return (float)Math.Sqrt(dx * dx + dy * dy);
+    }
 }
 
 public class Earth : Body
@@ -36,28 +62,12 @@ public class Mon : Body
 {
     public Mon()
     {
-        Position = new PointF(0f, -385);
+        Position = new PointF(0f, -385); // distância Terra-Lua
         VelocityX = 0.001f; // 1 km/s
         VelocityY = 0;
         Color = Color.White;
         Mass = 7.36E22f;
         Size = 3.4748f; // 3474,8 km
-    }
-}
-
-public class Satellite : Body
-{
-    public Satellite()
-    {
-        const float G = 6.6743E-11f;
-        Position = new PointF(0f, -127.562f / 2 - 10);
-        VelocityY = 0;
-        Color = Color.Gray;
-        Mass = 500000f;
-        Size = 3f; // 12756,2 km
-        VelocityX = (float)Math.Sqrt(G * 5.9742E24f 
-            / (1000 * 1000 * -Position.Y))
-            / (1000 * 1000);
     }
 }
 

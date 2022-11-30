@@ -1,28 +1,12 @@
-﻿using static System.Console;
+﻿using System.IO;
 using System.Linq;
+using static System.Console;
 using System.Collections.Generic;
 
 var days = getDays();
 var bikes = getSharings();
 
-var query = 
-    from d in days
-    join b in bikes
-    on d.Day equals b.Day
-    select new {
-        Day = b.Day,
-        BikeSharing = b.Casual + b.Registred,
-        Season = d.Season,
-        Temp = d.Temp,
-        IsWorkingDay = d.IsWorkingDay,
-        Weather = d.Weather
-    } into x
-    orderby x.BikeSharing
-    select x;
-
-foreach (var x in query)
-    WriteLine(x);
-
+// TODO
 
 IEnumerable<DayInfo> getDays()
 {
@@ -48,22 +32,8 @@ IEnumerable<DayInfo> getDays()
 
 IEnumerable<BikeSharing> getSharings()
 {
-    StreamReader reader = new StreamReader("bikeSharing.csv");
-    reader.ReadLine();
-
-    while (!reader.EndOfStream)
-    {
-        var data = reader.ReadLine().Split(',');
-        BikeSharing sharing = new BikeSharing();
-        
-        sharing.Day = int.Parse(data[0]);
-        sharing.Casual = int.Parse(data[1]);
-        sharing.Registred = int.Parse(data[2]);
-
-        yield return sharing;
-    }
-
-    reader.Close();
+    //TODO
+    yield break;
 }
 
 public class DayInfo
